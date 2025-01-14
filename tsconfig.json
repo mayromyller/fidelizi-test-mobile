@@ -1,13 +1,14 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/components": ["src/components"],
-      "@/hooks": ["src/hooks"],
-      "@/utils": ["src/utils"],
-      "@/routes": ["src/routes"],
-      "@/features": ["src/features"],
-    }
-  },
-  "extends": "expo/tsconfig.base"
+	"extends": "expo/tsconfig.base",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/components": ["src/components"],
+			"@/hooks": ["src/hooks"],
+			"@/utils": ["src/utils"],
+			"@/routes": ["src/routes"],
+			"@/screens": ["src/screens"],
+			"@/features": ["src/features"]
+		}
+	}
 }

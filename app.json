@@ -2,6 +2,7 @@
   "expo": {
     "name": "fidelizi-test-mobile",
     "slug": "fidelizi-test-mobile",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "newArchEnabled": true
   }
 }
