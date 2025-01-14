@@ -8,7 +8,8 @@
 			"@/utils": ["src/utils"],
 			"@/routes": ["src/routes"],
 			"@/screens": ["src/screens"],
-			"@/features": ["src/features"]
+			"@/features": ["src/features"],
+			"@/theme": ["src/theme"]
 		}
 	}
 }
