@@ -1,2 +1,7 @@
 export * from './eye'
 export * from './eye-closed'
+export * from './heart-filled'
+export * from './heart-unfilled'
+export * from './gift-uncollected'
+export * from './gift-collected'
+export * from './user'

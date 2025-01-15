@@ -4,6 +4,7 @@ import { colors } from './colors'
 export const theme = createTheme({
 	colors: colors,
 	spacing: {
+		none: 0,
 		s2: 2,
 		s4: 4,
 		s8: 8,
