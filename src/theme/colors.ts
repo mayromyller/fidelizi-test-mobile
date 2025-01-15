@@ -2,6 +2,7 @@ export const palette = {
 	white: '#FFFFFF',
 	white100: '#F9F9F9',
 
+	black800: '#272727',
 	black900: '#181818',
 
 	gray50: '#E6E6E6', // using in button
@@ -20,7 +21,7 @@ export const palette = {
 export const colors = {
 	...palette,
 	primary: palette.purple500,
-	secondary: palette.purple300,
+	primaryDisabled: palette.purple300,
 	background: palette.white100,
 	text: palette.black900,
 	border: palette.gray100,
