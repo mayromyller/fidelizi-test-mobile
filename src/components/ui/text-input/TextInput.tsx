@@ -40,9 +40,11 @@ export function TextInput({
 	return (
 		<Pressable onPress={focusInput}>
 			<Box>
-				<Text preset="caption" marginBottom="s2">
-					{label}
-				</Text>
+				{label && (
+					<Text preset="caption" marginBottom="s2">
+						{label}
+					</Text>
+				)}
 				<Box {...$textInputContainer}>
 					<RNTextInput
 						ref={inputRef}

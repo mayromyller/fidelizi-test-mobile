@@ -1,6 +1,7 @@
 export const palette = {
 	white: '#FFFFFF',
 	white100: '#F9F9F9',
+	white200: '#F5F5F5',
 
 	black800: '#272727',
 	black900: '#181818',
@@ -12,6 +13,7 @@ export const palette = {
 	gray400: '#898989', // using in placeholder
 	gray500: '#8D8D8D', // using in user icon
 	gray600: '#5A5A5A', // using in text-body-secondary
+	gray700: '#9c9c9c', // using in text-body-secondary
 
 	purple200: '#CCB0EA', // using in stamp filled
 	purple300: '#9C7BBF', // using in disabled primary button
