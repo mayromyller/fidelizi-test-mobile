@@ -1,24 +1,44 @@
 import { ThemeProvider } from '@shopify/restyle'
-import { StatusBar } from 'expo-status-bar'
-import React from 'react'
-import { Text } from 'react-native'
+import * as SplashScreen from 'expo-splash-screen'
+import React, { useEffect } from 'react'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
-import { Box, Button } from '@/components'
+import { NavigationRouter } from '@/routes'
 import { theme } from '@/theme'
 
+import {
+	Nunito_300Light,
+	Nunito_400Regular,
+	Nunito_500Medium,
+	Nunito_600SemiBold,
+	Nunito_700Bold,
+	useFonts
+} from '@expo-google-fonts/nunito'
+
 export default function App() {
+	const [fontsLoaded, error] = useFonts({
+		Nunito_300Light,
+		Nunito_400Regular,
+		Nunito_500Medium,
+		Nunito_600SemiBold,
+		Nunito_700Bold
+	})
+
+	useEffect(() => {
+		if (fontsLoaded || error) {
+			SplashScreen.hideAsync()
+		}
+	}, [fontsLoaded, error])
+
+	if (!fontsLoaded && !error) {
+		return null
+	}
+
 	return (
-		<ThemeProvider theme={theme}>
-			<Box
-				flex={1}
-				backgroundColor="white"
-				alignItems="center"
-				justifyContent="center"
-			>
-				<Text>Hello Theme</Text>
-				<Button />
-				<StatusBar style="auto" />
-			</Box>
-		</ThemeProvider>
+		<SafeAreaProvider>
+			<ThemeProvider theme={theme}>
+				<NavigationRouter />
+			</ThemeProvider>
+		</SafeAreaProvider>
 	)
 }
