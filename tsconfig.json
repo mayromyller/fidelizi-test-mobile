@@ -9,6 +9,7 @@
 			"@/routes": ["src/routes"],
 			"@/screens": ["src/screens"],
 			"@/features": ["src/features"],
+			"@/assets": ["src/assets"],
 			"@/theme": ["src/theme"]
 		}
 	}
