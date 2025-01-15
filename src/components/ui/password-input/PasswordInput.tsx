@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
 import { EyeClosedIcon, EyeIcon } from '@/assets'
-import { PressableBox, TextInput, type TextInputProps } from '@/components'
+import { PressableBox } from '../box/box'
+import { TextInput, type TextInputProps } from '../text-input/TextInput'
 
 export type PasswordInputProps = Omit<TextInputProps, 'RightComponent'>
 
