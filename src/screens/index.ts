@@ -1,3 +1,3 @@
 export * from './auth/SignInScreen'
 
-export * from './app/AmountSpentScreen'
+export * from './app/amount-spent-screen/AmountSpentScreen'
