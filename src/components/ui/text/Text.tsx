@@ -49,7 +49,13 @@ function getFontFamily(font: FontFamily) {
 	}
 }
 
-type TextVariants = 'title' | 'caption' | 'body' | 'heading' | 'paragraph'
+type TextVariants =
+	| 'title'
+	| 'caption'
+	| 'body'
+	| 'heading'
+	| 'paragraph'
+	| 'paragraphSmall'
 
 export const $fontSizes: Record<TextVariants, TextStyle> = {
 	title: {
@@ -59,6 +65,9 @@ export const $fontSizes: Record<TextVariants, TextStyle> = {
 	caption: {
 		fontSize: 12,
 		lineHeight: 16
+	},
+	paragraphSmall: {
+		fontSize: 14
 	},
 	body: {
 		fontSize: 18,
