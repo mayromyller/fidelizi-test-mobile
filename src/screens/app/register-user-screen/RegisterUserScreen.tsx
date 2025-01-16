@@ -7,9 +7,21 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { AppHeader, Box, Button, Content, TextInput } from '@/components'
 import type { Theme } from '@/theme'
 
-export function RegisterUserScreen() {
+import type { AppScreenProps } from '@/routes'
+
+export function RegisterUserScreen({
+	navigation,
+	route
+}: AppScreenProps<'RegisterUserScreen'>) {
 	const { colors } = useTheme<Theme>()
 	const { top } = useSafeAreaInsets()
+	const { totalStamps } = route.params
+
+	function handleNavigateToStampEarnScreen() {
+		navigation.navigate('StampEarnScreen', {
+			totalStamps
+		})
+	}
 
 	return (
 		<KeyboardAvoidingView
@@ -34,7 +46,11 @@ export function RegisterUserScreen() {
 						<TextInput placeholder="CPF" keyboardType="numeric" />
 
 						<Box gap="s8">
-							<Button title="Processar pontos" variant="secondary" />
+							<Button
+								title="Processar pontos"
+								variant="secondary"
+								onPress={handleNavigateToStampEarnScreen}
+							/>
 						</Box>
 					</Box>
 				</Content>

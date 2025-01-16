@@ -14,24 +14,23 @@ import {
 import { AppHeader, Box, Button, Content, Text } from '@/components'
 import type { Theme } from '@/theme'
 
-interface StampGridProps {
-	totalStamps: number
-	collectedStamps: number
-}
+import type { AppScreenProps } from '@/routes'
 
-export function StampEarnScreen({
-	totalStamps = 12,
-	collectedStamps = 4
-}: StampGridProps) {
+const TOTAL_STAMPS = 12
+
+export function StampEarnScreen({ route }: AppScreenProps<'StampEarnScreen'>) {
 	const { top } = useSafeAreaInsets()
 	const { colors } = useTheme<Theme>()
 
-	const stamps = Array.from({ length: totalStamps }, (_, index) => ({
+	const { totalStamps } = route.params
+	const collectedStamps = totalStamps
+
+	const stamps = Array.from({ length: TOTAL_STAMPS }, (_, index) => ({
 		id: index,
 		isCollected: index < collectedStamps
 	}))
 
-	const isGiftBoxCollected = collectedStamps === totalStamps
+	const isGiftBoxCollected = collectedStamps === TOTAL_STAMPS
 
 	function renderStamp(stamp: { id: number; isCollected: boolean }) {
 		return (
@@ -100,7 +99,13 @@ export function StampEarnScreen({
 					</Box>
 				</Box>
 
-				<Content noPadding backgroundColor="background" mt="s2" noBorder>
+				<Content
+					noPadding
+					backgroundColor="background"
+					contentColor="background"
+					mt="s2"
+					noBorder
+				>
 					<Box>
 						<Box
 							flexDirection="row"
