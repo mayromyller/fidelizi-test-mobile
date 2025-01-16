@@ -7,15 +7,17 @@ interface ContentProps extends BoxProps {
 	children?: React.ReactElement
 	noPadding?: boolean
 	backgroundColor?: ThemeColors
+	contentColor?: ThemeColors
 	noBorder?: boolean
 }
 
 export function Content({
 	title,
 	children,
-	noPadding,
-	noBorder = true,
-	backgroundColor = 'white200',
+	noPadding = false,
+	noBorder = false,
+	contentColor = 'white',
+	backgroundColor,
 	...boxProps
 }: ContentProps) {
 	return (
@@ -32,7 +34,7 @@ export function Content({
 
 			<Box
 				borderColor="white200"
-				backgroundColor={backgroundColor}
+				backgroundColor={contentColor}
 				borderRadius="s8"
 				borderWidth={noBorder ? 0 : 1}
 				p={noPadding ? 'none' : 's16'}
