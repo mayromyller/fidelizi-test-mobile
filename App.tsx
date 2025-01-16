@@ -6,6 +6,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { NavigationRouter } from '@/routes'
 import { theme } from '@/theme'
 
+import { AuthContextProvider } from '@/context'
 import {
 	Nunito_300Light,
 	Nunito_400Regular,
@@ -37,7 +38,9 @@ export default function App() {
 	return (
 		<SafeAreaProvider>
 			<ThemeProvider theme={theme}>
-				<NavigationRouter />
+				<AuthContextProvider>
+					<NavigationRouter />
+				</AuthContextProvider>
 			</ThemeProvider>
 		</SafeAreaProvider>
 	)
