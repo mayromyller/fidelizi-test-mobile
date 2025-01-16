@@ -1,6 +1,6 @@
 import { useTheme } from '@shopify/restyle'
 import { StatusBar } from 'expo-status-bar'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
@@ -14,23 +14,37 @@ import {
 import { AppHeader, Box, Button, Content, Text } from '@/components'
 import type { Theme } from '@/theme'
 
+import { useGetUserPersisted, useStampService } from '@/features'
 import type { AppScreenProps } from '@/routes'
 
 const TOTAL_STAMPS = 12
 
-export function StampEarnScreen({ route }: AppScreenProps<'StampEarnScreen'>) {
+export function StampEarnScreen({
+	route,
+	navigation
+}: AppScreenProps<'StampEarnScreen'>) {
 	const { top } = useSafeAreaInsets()
 	const { colors } = useTheme<Theme>()
 
 	const { totalStamps } = route.params
-	const collectedStamps = totalStamps
 
-	const stamps = Array.from({ length: TOTAL_STAMPS }, (_, index) => ({
+	const { setStamps, stamps } = useStampService()
+	const { cpf, fullName } = useGetUserPersisted()
+
+	const collectedStamps = useMemo(() => totalStamps + stamps, [totalStamps])
+
+	const stampsToRender = Array.from({ length: TOTAL_STAMPS }, (_, index) => ({
 		id: index,
 		isCollected: index < collectedStamps
 	}))
 
 	const isGiftBoxCollected = collectedStamps === TOTAL_STAMPS
+
+	function handleSetStamps() {
+		setStamps(collectedStamps)
+
+		navigation.navigate('AmountSpentScreen')
+	}
 
 	function renderStamp(stamp: { id: number; isCollected: boolean }) {
 		return (
@@ -93,8 +107,8 @@ export function StampEarnScreen({ route }: AppScreenProps<'StampEarnScreen'>) {
 					<Box flexDirection="row" alignItems="center" gap="s4">
 						<UserIcon />
 						<Box>
-							<Text preset="paragraphSmall">Nome do cliente</Text>
-							<Text preset="paragraphSmall">CPF 000.000.000-00</Text>
+							<Text preset="paragraphSmall">{fullName}</Text>
+							<Text preset="paragraphSmall">CPF {cpf}</Text>
 						</Box>
 					</Box>
 				</Box>
@@ -114,7 +128,7 @@ export function StampEarnScreen({ route }: AppScreenProps<'StampEarnScreen'>) {
 							mb="s12"
 							gap="s12"
 						>
-							{stamps.slice(0, 11).map(renderStamp)}
+							{stampsToRender.slice(0, 11).map(renderStamp)}
 							{renderGift(isGiftBoxCollected)}
 						</Box>
 					</Box>
@@ -127,7 +141,11 @@ export function StampEarnScreen({ route }: AppScreenProps<'StampEarnScreen'>) {
 					flex={1}
 				>
 					<Button title="Ver detalhes da compra" variant="primary" disabled />
-					<Button title="Finalizar" variant="primary" />
+					<Button
+						title="Finalizar"
+						variant="primary"
+						onPress={handleSetStamps}
+					/>
 				</Box>
 			</ScrollView>
 		</KeyboardAvoidingView>

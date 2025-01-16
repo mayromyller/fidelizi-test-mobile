@@ -8,22 +8,31 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { AppHeader, Box, Button, Content, Text, TextInput } from '@/components'
 import type { Theme } from '@/theme'
 
-import { formatValueToCurrency, useCalculateStamp } from '@/features'
+import {
+	formatValueToCurrency,
+	useCalculateStamp,
+	useSetPhone
+} from '@/features'
 import type { AppScreenProps } from '@/routes'
 
 export function ContactUserScreen({
 	navigation,
 	route
 }: AppScreenProps<'ContactUserScreen'>) {
-	const [phone, setPhone] = useState<string>('')
+	const [phoneNumber, setPhoneNumber] = useState<string>('')
 	const { value } = route.params
 
 	const totalStamps = useCalculateStamp(value)
 
 	const { colors } = useTheme<Theme>()
 	const { top } = useSafeAreaInsets()
+	const { setPhone } = useSetPhone()
 
 	function handleNavigateToRegisterUser() {
+		if (phoneNumber) {
+			setPhone(phoneNumber)
+		}
+
 		navigation.navigate('RegisterUserScreen', {
 			totalStamps
 		})
@@ -45,12 +54,12 @@ export function ContactUserScreen({
 						<TextInput
 							placeholder="(99) 99999-9999"
 							keyboardType="numeric"
-							value={phone}
-							onChangeText={setPhone}
+							value={phoneNumber}
+							onChangeText={setPhoneNumber}
 						/>
 
 						<Text preset="body" fontFamily="bold" color="gray700">
-							{totalStamps} {totalStamps > 1 ? 'Selos' : 'Selo'}
+							{totalStamps} {totalStamps > 1 ? 'Selos' : 'Selo'}{' '}
 							{`(${formatValueToCurrency(value)})`}
 						</Text>
 
