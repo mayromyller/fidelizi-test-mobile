@@ -10,7 +10,9 @@
 			"@/screens": ["src/screens"],
 			"@/features": ["src/features"],
 			"@/assets": ["src/assets"],
-			"@/theme": ["src/theme"]
+			"@/theme": ["src/theme"],
+			"@/storage": ["src/storage"],
+			"@/context": ["src/context"]
 		}
 	}
 }
