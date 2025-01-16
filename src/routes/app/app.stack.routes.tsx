@@ -7,11 +7,17 @@ import {
 	StampEarnScreen
 } from '@/screens'
 
-type AppStackParamList = {
+export type AppStackParamList = {
 	AmountSpentScreen: undefined
-	ContactUserScreen: undefined
-	RegisterUserScreen: undefined
-	StampEarnScreen: undefined
+	ContactUserScreen: {
+		value: number
+	}
+	RegisterUserScreen: {
+		totalStamps: number
+	}
+	StampEarnScreen: {
+		totalStamps: number
+	}
 }
 
 const Stack = createNativeStackNavigator<AppStackParamList>()
@@ -20,7 +26,7 @@ export function AppStackRoutes() {
 	return (
 		<Stack.Navigator
 			id={undefined}
-			initialRouteName="StampEarnScreen"
+			initialRouteName="AmountSpentScreen"
 			screenOptions={{
 				headerShown: false
 			}}

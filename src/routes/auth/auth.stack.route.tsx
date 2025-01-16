@@ -1,7 +1,7 @@
 import { SignInScreen } from '@/screens'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-type AuthStackParamList = {
+export type AuthStackParamList = {
 	SignInScreen: undefined
 }
 
