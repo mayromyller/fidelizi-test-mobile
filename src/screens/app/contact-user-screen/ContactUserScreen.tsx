@@ -63,7 +63,7 @@ export function ContactUserScreen({
 					titleStore="Pizzaria Italian"
 					descriptionStore="Pizzaria Italian - Loja 01"
 					Component={
-						<PressableBox onPress={cancellingSpent}>
+						<PressableBox testID="pressable-box" onPress={cancellingSpent}>
 							<XIcon />
 						</PressableBox>
 					}
@@ -84,6 +84,7 @@ export function ContactUserScreen({
 
 						<Box gap="s8">
 							<Button
+								testID="button-next"
 								title="Próximo >"
 								variant="secondary"
 								onPress={handleNavigateToRegisterUser}
