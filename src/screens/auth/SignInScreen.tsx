@@ -37,6 +37,7 @@ export function SignInScreen() {
 					/>
 
 					<PasswordInput
+						testID="password-input"
 						label="Senha"
 						autoCapitalize="none"
 						value={password}

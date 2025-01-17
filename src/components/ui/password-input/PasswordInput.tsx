@@ -19,11 +19,19 @@ export function PasswordInput(props: PasswordInputProps) {
 			{...props}
 			RightComponent={
 				isSecureTextEntry ? (
-					<PressableBox onPress={toggleSecureTextEntry} hitSlop={10}>
+					<PressableBox
+						testID="toggle-password-visibility"
+						onPress={toggleSecureTextEntry}
+						hitSlop={10}
+					>
 						<EyeClosedIcon color="gray300" />
 					</PressableBox>
 				) : (
-					<PressableBox onPress={toggleSecureTextEntry} hitSlop={10}>
+					<PressableBox
+						testID="toggle-password-visibility"
+						onPress={toggleSecureTextEntry}
+						hitSlop={10}
+					>
 						<EyeIcon color="gray300" />
 					</PressableBox>
 				)
