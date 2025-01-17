@@ -55,6 +55,7 @@ export function StampEarnScreen({
 	function renderStamp(stamp: { id: number; isCollected: boolean }) {
 		return (
 			<Box
+				testID={`stamp-${stamp.id}`}
 				key={stamp.id}
 				width={84}
 				height={79}
@@ -71,6 +72,7 @@ export function StampEarnScreen({
 	function renderGift(isCollected: boolean) {
 		return (
 			<Box
+				testID="gift"
 				width={84}
 				height={79}
 				borderRadius="s8"
