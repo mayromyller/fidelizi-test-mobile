@@ -5692,6 +5692,11 @@ react-is@^16.13.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-native-mask-input@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/react-native-mask-input/-/react-native-mask-input-1.2.3.tgz#c588b145bb48098be54ac6b40ebe7363a302428b"
+  integrity sha512-RWx+gc1EaBslJWR6dsvGdILJ5XvnvZuyEsgJaH9uAMukB3Z9eOlxra1E7Ovck8NSMVcYWpBB/lzojO4LwqqXgA==
+
 react-native-safe-area-context@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-5.1.0.tgz#0125f0c7762a2c189a3d067623ab8fbcdcb79cb8"
