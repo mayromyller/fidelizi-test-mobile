@@ -82,6 +82,7 @@ export function AmountSpentScreen({
 
 						<Box gap="s8">
 							<Button
+								testID="button-spend"
 								title="Lançar pontos"
 								variant="primary"
 								disabled={isValidValue}
