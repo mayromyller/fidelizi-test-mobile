@@ -3,7 +3,8 @@ import React from 'react'
 import {
 	useAuthSignOut,
 	useCalculateStamp,
-	useGetUserPersisted
+	useGetUserPersisted,
+	useUserService
 } from '@/features'
 import { act, fireEvent, render } from 'test-utils'
 
@@ -12,7 +13,8 @@ import { AmountSpentScreen } from '../AmountSpentScreen'
 jest.mock('@/features', () => ({
 	useCalculateStamp: jest.fn(),
 	useGetUserPersisted: jest.fn(),
-	useAuthSignOut: jest.fn(() => ({ signOut: jest.fn() }))
+	useAuthSignOut: jest.fn(() => ({ signOut: jest.fn() })),
+	useUserService: jest.fn()
 }))
 
 const mockNavigation = {
@@ -24,6 +26,9 @@ beforeEach(() => {
 	jest.useFakeTimers()
 	;(useGetUserPersisted as jest.Mock).mockReturnValue({
 		cpf: '123.456.789-00'
+	})
+	;(useUserService as jest.Mock).mockReturnValue({
+		removeUser: jest.fn()
 	})
 })
 

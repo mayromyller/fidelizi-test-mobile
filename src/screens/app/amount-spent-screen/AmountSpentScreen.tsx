@@ -18,7 +18,8 @@ import {
 import {
 	useAuthSignOut,
 	useCalculateStamp,
-	useGetUserPersisted
+	useGetUserPersisted,
+	useUserService
 } from '@/features'
 import type { AppScreenProps } from '@/routes'
 import type { Theme } from '@/theme'
@@ -31,6 +32,7 @@ export function AmountSpentScreen({
 	const { colors } = useTheme<Theme>()
 	const { signOut } = useAuthSignOut()
 	const { top } = useSafeAreaInsets()
+	const { removeUser } = useUserService()
 
 	const isValidValue = Number(value) < 20
 	const userPersisted = useGetUserPersisted()
@@ -47,6 +49,11 @@ export function AmountSpentScreen({
 				value: Number(value)
 			})
 		}
+	}
+
+	function handleSignOut() {
+		removeUser()
+		signOut()
 	}
 
 	return (
@@ -91,7 +98,7 @@ export function AmountSpentScreen({
 							<Button
 								title="Desconectar"
 								variant="secondary"
-								onPress={signOut}
+								onPress={handleSignOut}
 							/>
 						</Box>
 					</Box>

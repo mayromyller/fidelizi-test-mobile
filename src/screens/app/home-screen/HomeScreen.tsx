@@ -6,6 +6,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { AppHeader, Box, Button, Content, Text } from '@/components'
 import { useStampService } from '@/features'
+import { useBackHandler } from '@/hooks'
 import type { AppScreenProps } from '@/routes'
 import type { Theme } from '@/theme'
 
@@ -20,6 +21,8 @@ export function HomeScreen({ navigation }: AppScreenProps<'HomeScreen'>) {
 	function handleNavigateToAmountSpentScreen() {
 		navigation.navigate('AmountSpentScreen')
 	}
+
+	useBackHandler()
 
 	return (
 		<KeyboardAvoidingView
