@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native'
+import { Masks } from 'react-native-mask-input'
 
 import { useTheme } from '@shopify/restyle'
 import { StatusBar } from 'expo-status-bar'
@@ -13,9 +14,11 @@ import {
 	Content,
 	PressableBox,
 	Text,
-	TextInput
+	TextInput,
+	TextInputWithMask
 } from '@/components'
 import {
+	parseCurrencyToNumber,
 	useAuthSignOut,
 	useCalculateStamp,
 	useGetUserPersisted,
@@ -34,19 +37,20 @@ export function AmountSpentScreen({
 	const { top } = useSafeAreaInsets()
 	const { removeUser } = useUserService()
 
-	const isValidValue = Number(value) < 20
+	const isValidValue = parseCurrencyToNumber(value) < 20
+
 	const userPersisted = useGetUserPersisted()
-	const totalStamps = useCalculateStamp(Number(value))
+	const totalStamps = useCalculateStamp(parseCurrencyToNumber(value))
 
 	function handleNavigateToNextScreen() {
 		if (userPersisted?.cpf) {
 			navigation.navigate('StampEarnScreen', {
-				value: Number(value),
+				value: parseCurrencyToNumber(value),
 				totalStamps
 			})
 		} else {
 			navigation.navigate('ContactUserScreen', {
-				value: Number(value)
+				value: parseCurrencyToNumber(value)
 			})
 		}
 	}
@@ -74,9 +78,11 @@ export function AmountSpentScreen({
 				/>
 				<Content title="Qual o valor gasto?">
 					<Box gap="s32">
-						<TextInput
+						<TextInputWithMask
+							testID="spent-input"
 							placeholder="R$ 0,00"
 							keyboardType="numeric"
+							mask={Masks.BRL_CURRENCY}
 							value={value}
 							onChangeText={setValue}
 						/>

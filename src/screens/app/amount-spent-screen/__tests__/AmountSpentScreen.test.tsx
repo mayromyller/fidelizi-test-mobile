@@ -1,6 +1,7 @@
 import React from 'react'
 
 import {
+	parseCurrencyToNumber,
 	useAuthSignOut,
 	useCalculateStamp,
 	useGetUserPersisted,
@@ -14,7 +15,8 @@ jest.mock('@/features', () => ({
 	useCalculateStamp: jest.fn(),
 	useGetUserPersisted: jest.fn(),
 	useAuthSignOut: jest.fn(() => ({ signOut: jest.fn() })),
-	useUserService: jest.fn()
+	useUserService: jest.fn(),
+	parseCurrencyToNumber: jest.fn()
 }))
 
 const mockNavigation = {
@@ -46,12 +48,13 @@ describe('AmountSpentScreen', () => {
 	})
 
 	it('should disabled "Lançar pontos" button when value is less than 20', () => {
-		const { getByTestId, getByPlaceholderText } = render(
+		const { getByTestId } = render(
 			<AmountSpentScreen navigation={{} as any} route={{} as any} />
 		)
+		;(parseCurrencyToNumber as jest.Mock).mockReturnValue(10)
 
 		act(() => {
-			fireEvent.changeText(getByPlaceholderText('R$ 0,00'), '19')
+			fireEvent.changeText(getByTestId('spent-input'), '10')
 		})
 
 		const button = getByTestId('button-spend')
@@ -63,7 +66,7 @@ describe('AmountSpentScreen', () => {
 		const { getByTestId, getByPlaceholderText } = render(
 			<AmountSpentScreen navigation={{} as any} route={{} as any} />
 		)
-
+		;(parseCurrencyToNumber as jest.Mock).mockReturnValue(25)
 		act(() => {
 			fireEvent.changeText(getByPlaceholderText('R$ 0,00'), '25')
 		})
@@ -81,6 +84,7 @@ describe('AmountSpentScreen', () => {
 		const { getByTestId, getByPlaceholderText } = render(
 			<AmountSpentScreen navigation={mockNavigation as any} route={{} as any} />
 		)
+		;(parseCurrencyToNumber as jest.Mock).mockReturnValue(25)
 
 		act(() => {
 			fireEvent.changeText(getByPlaceholderText('R$ 0,00'), '25')
@@ -104,6 +108,7 @@ describe('AmountSpentScreen', () => {
 		const { getByTestId, getByPlaceholderText } = render(
 			<AmountSpentScreen navigation={mockNavigation as any} route={{} as any} />
 		)
+		;(parseCurrencyToNumber as jest.Mock).mockReturnValue(25)
 
 		act(() => {
 			fireEvent.changeText(getByPlaceholderText('R$ 0,00'), '25')
