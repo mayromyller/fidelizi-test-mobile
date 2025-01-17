@@ -12,7 +12,8 @@
 			"@/assets": ["src/assets"],
 			"@/theme": ["src/theme"],
 			"@/storage": ["src/storage"],
-			"@/context": ["src/context"]
+			"@/context": ["src/context"],
+			"test-utils": ["src/test/test-utils"]
 		}
 	}
 }
