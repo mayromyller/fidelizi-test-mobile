@@ -11,13 +11,15 @@ import {
 	Button,
 	Content,
 	PressableBox,
-	TextInput
+	TextInput,
+	TextInputWithMask
 } from '@/components'
 import type { Theme } from '@/theme'
 
 import { XIcon } from '@/assets'
 import { useSetUser } from '@/features'
 import type { AppScreenProps } from '@/routes'
+import { Masks } from 'react-native-mask-input'
 
 export function RegisterUserScreen({
 	navigation,
@@ -88,7 +90,8 @@ export function RegisterUserScreen({
 							placeholder="Email"
 							autoCapitalize="none"
 						/>
-						<TextInput
+						<TextInputWithMask
+							mask={Masks.BRL_CPF}
 							value={cpf}
 							onChangeText={setCpf}
 							placeholder="CPF"

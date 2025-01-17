@@ -102,7 +102,7 @@ describe('ContactUserScreen', () => {
 			fireEvent.press(button)
 		})
 
-		expect(mockSetPhone).toHaveBeenCalledWith('11999999999')
+		expect(mockSetPhone).toHaveBeenCalledWith('(11) 99999-9999')
 		expect(mockNavigation.navigate).toHaveBeenCalledWith('RegisterUserScreen', {
 			totalStamps: 5,
 			value: 100

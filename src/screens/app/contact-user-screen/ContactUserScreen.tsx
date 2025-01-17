@@ -12,7 +12,7 @@ import {
 	Content,
 	PressableBox,
 	Text,
-	TextInput
+	TextInputWithMask
 } from '@/components'
 import type { Theme } from '@/theme'
 
@@ -23,6 +23,7 @@ import {
 	useSetPhone
 } from '@/features'
 import type { AppScreenProps } from '@/routes'
+import { Masks } from 'react-native-mask-input'
 
 export function ContactUserScreen({
 	navigation,
@@ -70,7 +71,8 @@ export function ContactUserScreen({
 				/>
 				<Content title="Qual o WhatsApp do cliente?">
 					<Box gap="s32">
-						<TextInput
+						<TextInputWithMask
+							mask={Masks.BRL_PHONE}
 							placeholder="(99) 99999-9999"
 							keyboardType="numeric"
 							value={phoneNumber}

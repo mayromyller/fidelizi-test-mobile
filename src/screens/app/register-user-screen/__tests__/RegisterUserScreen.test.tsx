@@ -32,7 +32,7 @@ afterEach(() => {
 const mockedUser = {
 	fullName: 'John Doe',
 	email: 'john.doe@example.com',
-	cpf: '12345678900'
+	cpf: '123.456.789-00'
 }
 
 describe('RegisterUserScreen', () => {
