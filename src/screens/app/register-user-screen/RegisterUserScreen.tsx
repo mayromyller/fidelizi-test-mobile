@@ -70,7 +70,7 @@ export function RegisterUserScreen({
 					titleStore="Pizzaria Italian"
 					descriptionStore="Pizzaria Italian - Loja 01"
 					Component={
-						<PressableBox onPress={cancellingSpent}>
+						<PressableBox testID="cancel-button" onPress={cancellingSpent}>
 							<XIcon />
 						</PressableBox>
 					}
@@ -97,6 +97,7 @@ export function RegisterUserScreen({
 
 						<Box gap="s8">
 							<Button
+								testID="button-register"
 								title="Processar pontos"
 								variant="secondary"
 								disabled={!formIsValid}
