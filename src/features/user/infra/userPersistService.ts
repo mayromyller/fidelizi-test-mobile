@@ -8,7 +8,7 @@ import type { UserService } from '../userTypes'
 const USER_STORAGE_KEY = 'FIDELIZI_USER_STORAGE_KEY'
 const STAMPS_STORAGE_KEY = 'FIDELIZI_STAMPS_STORAGE_KEY'
 
-const useUserPersistStore = create<UserService>()(
+export const useUserPersistStore = create<UserService>()(
 	persist(
 		(set, _) => ({
 			user: null,
