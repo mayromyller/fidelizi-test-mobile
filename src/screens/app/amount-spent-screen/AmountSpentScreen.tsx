@@ -5,8 +5,21 @@ import { useTheme } from '@shopify/restyle'
 import { StatusBar } from 'expo-status-bar'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-import { AppHeader, Box, Button, Content, Text, TextInput } from '@/components'
-import { useAuthSignOut } from '@/features'
+import { ChevronLeftIcon } from '@/assets'
+import {
+	AppHeader,
+	Box,
+	Button,
+	Content,
+	PressableBox,
+	Text,
+	TextInput
+} from '@/components'
+import {
+	useAuthSignOut,
+	useCalculateStamp,
+	useGetUserPersisted
+} from '@/features'
 import type { AppScreenProps } from '@/routes'
 import type { Theme } from '@/theme'
 
@@ -20,11 +33,20 @@ export function AmountSpentScreen({
 	const { top } = useSafeAreaInsets()
 
 	const isValidValue = Number(value) < 20
+	const userPersisted = useGetUserPersisted()
+	const totalStamps = useCalculateStamp(Number(value))
 
-	function handleNavigateToContactUser() {
-		navigation.navigate('ContactUserScreen', {
-			value: Number(value)
-		})
+	function handleNavigateToNextScreen() {
+		if (userPersisted?.cpf) {
+			navigation.navigate('StampEarnScreen', {
+				value: Number(value),
+				totalStamps
+			})
+		} else {
+			navigation.navigate('ContactUserScreen', {
+				value: Number(value)
+			})
+		}
 	}
 
 	return (
@@ -37,6 +59,11 @@ export function AmountSpentScreen({
 				<AppHeader
 					titleStore="Pizzaria Italian"
 					descriptionStore="Pizzaria Italian - Loja 01"
+					Component={
+						<PressableBox onPress={navigation.goBack}>
+							<ChevronLeftIcon />
+						</PressableBox>
+					}
 				/>
 				<Content title="Qual o valor gasto?">
 					<Box gap="s32">
@@ -58,7 +85,7 @@ export function AmountSpentScreen({
 								title="Lançar pontos"
 								variant="primary"
 								disabled={isValidValue}
-								onPress={handleNavigateToContactUser}
+								onPress={handleNavigateToNextScreen}
 							/>
 							<Button
 								title="Desconectar"
