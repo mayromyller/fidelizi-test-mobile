@@ -5,9 +5,17 @@ import { useTheme } from '@shopify/restyle'
 import { StatusBar } from 'expo-status-bar'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-import { AppHeader, Box, Button, Content, TextInput } from '@/components'
+import {
+	AppHeader,
+	Box,
+	Button,
+	Content,
+	PressableBox,
+	TextInput
+} from '@/components'
 import type { Theme } from '@/theme'
 
+import { XIcon } from '@/assets'
 import { useSetUser } from '@/features'
 import type { AppScreenProps } from '@/routes'
 
@@ -21,7 +29,7 @@ export function RegisterUserScreen({
 
 	const { colors } = useTheme<Theme>()
 	const { top } = useSafeAreaInsets()
-	const { totalStamps } = route.params
+	const { totalStamps, value } = route.params
 
 	const { registerUser } = useSetUser()
 
@@ -36,9 +44,14 @@ export function RegisterUserScreen({
 			})
 
 			navigation.navigate('StampEarnScreen', {
-				totalStamps
+				totalStamps,
+				value
 			})
 		}
+	}
+
+	function cancellingSpent() {
+		navigation.navigate('HomeScreen')
 	}
 
 	return (
@@ -56,8 +69,13 @@ export function RegisterUserScreen({
 				<AppHeader
 					titleStore="Pizzaria Italian"
 					descriptionStore="Pizzaria Italian - Loja 01"
+					Component={
+						<PressableBox onPress={cancellingSpent}>
+							<XIcon />
+						</PressableBox>
+					}
 				/>
-				<Content title="Complete seu cadastro">
+				<Content title="Complete o seu cadastro">
 					<Box gap="s32">
 						<TextInput
 							value={fullName}

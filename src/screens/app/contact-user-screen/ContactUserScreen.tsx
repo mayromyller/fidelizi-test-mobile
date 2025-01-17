@@ -5,9 +5,18 @@ import { useTheme } from '@shopify/restyle'
 import { StatusBar } from 'expo-status-bar'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-import { AppHeader, Box, Button, Content, Text, TextInput } from '@/components'
+import {
+	AppHeader,
+	Box,
+	Button,
+	Content,
+	PressableBox,
+	Text,
+	TextInput
+} from '@/components'
 import type { Theme } from '@/theme'
 
+import { XIcon } from '@/assets'
 import {
 	formatValueToCurrency,
 	useCalculateStamp,
@@ -34,8 +43,13 @@ export function ContactUserScreen({
 		}
 
 		navigation.navigate('RegisterUserScreen', {
-			totalStamps
+			totalStamps,
+			value
 		})
+	}
+
+	function cancellingSpent() {
+		navigation.navigate('HomeScreen')
 	}
 
 	return (
@@ -48,6 +62,11 @@ export function ContactUserScreen({
 				<AppHeader
 					titleStore="Pizzaria Italian"
 					descriptionStore="Pizzaria Italian - Loja 01"
+					Component={
+						<PressableBox onPress={cancellingSpent}>
+							<XIcon />
+						</PressableBox>
+					}
 				/>
 				<Content title="Qual o WhatsApp do cliente?">
 					<Box gap="s32">

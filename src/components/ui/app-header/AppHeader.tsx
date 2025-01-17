@@ -20,11 +20,7 @@ export function AppHeader({
 }: AppHeaderProps) {
 	return (
 		<Box paddingHorizontal="s16" pt="s24" pb="s16" backgroundColor="primary">
-			{Component && (
-				<Box paddingHorizontal="s16" mt="s16" mb="s24">
-					{Component}
-				</Box>
-			)}
+			{Component && <Box mb="s24">{Component}</Box>}
 			<Box flexDirection="row" alignItems="center" gap="s8">
 				<Box
 					height={60}

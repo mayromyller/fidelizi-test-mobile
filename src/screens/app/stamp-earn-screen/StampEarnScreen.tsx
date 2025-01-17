@@ -26,7 +26,7 @@ export function StampEarnScreen({
 	const { top } = useSafeAreaInsets()
 	const { colors } = useTheme<Theme>()
 
-	const { totalStamps } = route.params
+	const { totalStamps, value } = route.params
 
 	const { setStamps, stamps } = useStampService()
 	const { cpf, fullName } = useGetUserPersisted()
@@ -38,12 +38,18 @@ export function StampEarnScreen({
 		isCollected: index < collectedStamps
 	}))
 
-	const isGiftBoxCollected = collectedStamps === TOTAL_STAMPS
+	const isGiftBoxCollected = collectedStamps >= TOTAL_STAMPS
 
 	function handleSetStamps() {
 		setStamps(collectedStamps)
 
-		navigation.navigate('AmountSpentScreen')
+		navigation.navigate('HomeScreen')
+	}
+
+	function handleNavigateToPurchaseDetailsScreen() {
+		navigation.navigate('PurchaseDetailsScreen', {
+			value
+		})
 	}
 
 	function renderStamp(stamp: { id: number; isCollected: boolean }) {
@@ -140,7 +146,11 @@ export function StampEarnScreen({
 					gap="s8"
 					flex={1}
 				>
-					<Button title="Ver detalhes da compra" variant="primary" disabled />
+					<Button
+						title="Ver detalhes da compra"
+						variant="primary"
+						onPress={handleNavigateToPurchaseDetailsScreen}
+					/>
 					<Button
 						title="Finalizar"
 						variant="primary"
