@@ -1,4 +1,4 @@
-package com.fidelizitestmobile
+package com.mmdev11.fidelizitestmobile
 
 import android.app.Application
 import android.content.res.Configuration

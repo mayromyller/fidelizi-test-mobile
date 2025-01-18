@@ -21,7 +21,7 @@ extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
   }
 }
 
-rootProject.name = 'fidelizitestmobile'
+rootProject.name = 'Teste Fidelizi - by Mayro'
 
 dependencyResolutionManagement {
   versionCatalogs {

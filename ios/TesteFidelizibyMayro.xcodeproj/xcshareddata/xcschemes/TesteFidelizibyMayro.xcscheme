@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "fidelizitestmobile.app"
-               BlueprintName = "fidelizitestmobile"
-               ReferencedContainer = "container:fidelizitestmobile.xcodeproj">
+               BuildableName = "TesteFidelizibyMayro.app"
+               BlueprintName = "TesteFidelizibyMayro"
+               ReferencedContainer = "container:TesteFidelizibyMayro.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "fidelizitestmobileTests.xctest"
-               BlueprintName = "fidelizitestmobileTests"
-               ReferencedContainer = "container:fidelizitestmobile.xcodeproj">
+               BuildableName = "TesteFidelizibyMayroTests.xctest"
+               BlueprintName = "TesteFidelizibyMayroTests"
+               ReferencedContainer = "container:TesteFidelizibyMayro.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "fidelizitestmobile.app"
-            BlueprintName = "fidelizitestmobile"
-            ReferencedContainer = "container:fidelizitestmobile.xcodeproj">
+            BuildableName = "TesteFidelizibyMayro.app"
+            BlueprintName = "TesteFidelizibyMayro"
+            ReferencedContainer = "container:TesteFidelizibyMayro.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "fidelizitestmobile.app"
-            BlueprintName = "fidelizitestmobile"
-            ReferencedContainer = "container:fidelizitestmobile.xcodeproj">
+            BuildableName = "TesteFidelizibyMayro.app"
+            BlueprintName = "TesteFidelizibyMayro"
+            ReferencedContainer = "container:TesteFidelizibyMayro.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
