@@ -14,7 +14,6 @@ import {
 	Content,
 	PressableBox,
 	Text,
-	TextInput,
 	TextInputWithMask
 } from '@/components'
 import {
@@ -66,7 +65,12 @@ export function AmountSpentScreen({
 			behavior={Platform.OS === 'ios' ? 'padding' : undefined}
 		>
 			<StatusBar style="light" backgroundColor={colors.primary} translucent />
-			<ScrollView style={{ flex: 1, paddingTop: top }}>
+			<ScrollView
+				style={{ flex: 1, paddingTop: top }}
+				showsVerticalScrollIndicator={false}
+				overScrollMode="never"
+				bounces={false}
+			>
 				<AppHeader
 					titleStore="Pizzaria Italian"
 					descriptionStore="Pizzaria Italian - Loja 01"

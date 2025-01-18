@@ -10,7 +10,7 @@ const testUser = {
 }
 
 export function useAuthSignIn() {
-	const { saveUserCredentials } = useAuthContext()
+	const { saveUserCredentials, isLoading } = useAuthContext()
 
 	const signIn = ({ email, password }: UserCredentials): boolean => {
 		if (email === testUser.email && password === testUser.password) {
@@ -28,6 +28,7 @@ export function useAuthSignIn() {
 	}
 
 	return {
-		signIn
+		signIn,
+		isLoading
 	}
 }
