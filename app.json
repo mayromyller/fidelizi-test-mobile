@@ -1,27 +1,32 @@
 {
-	"expo": {
-		"name": "Teste Fidelizi - by Mayro",
-		"slug": "fidelizi-test-mobile",
-		"version": "1.0.0",
-		"newArchEnabled": true,
-		"icon": "./assets/icon.png",
-		"plugins": [
-			"expo-font",
-			[
-				"expo-splash-screen",
-				{
-					"image": "./assets/splash.png",
-					"resizeMode": "cover",
-					"backgroundColor": "#f9f9f9",
-					"imageWidth": 600
-				}
-			]
-		],
-		"android": {
-			"package": "com.mmdev11.fidelizitestmobile"
-		},
-		"ios": {
-			"bundleIdentifier": "com.mmdev11.fidelizitestmobile"
-		}
-	}
+  "expo": {
+    "name": "Teste Fidelizi - by Mayro",
+    "slug": "fidelizi-test-mobile",
+    "version": "1.0.0",
+    "newArchEnabled": true,
+    "icon": "./assets/icon.png",
+    "plugins": [
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash.png",
+          "resizeMode": "cover",
+          "backgroundColor": "#f9f9f9",
+          "imageWidth": 600
+        }
+      ]
+    ],
+    "android": {
+      "package": "com.mmdev11.fidelizitestmobile"
+    },
+    "ios": {
+      "bundleIdentifier": "com.mmdev11.fidelizitestmobile"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d1412306-1a27-4cf2-b1cd-b7a4ce4b2983"
+      }
+    }
+  }
 }
