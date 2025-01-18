@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { ActivityIndicator } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 import { Box, Button, PasswordInput, Text, TextInput } from '@/components'
@@ -8,7 +9,7 @@ export function SignInScreen() {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
-	const { signIn } = useAuthSignIn()
+	const { signIn, isLoading } = useAuthSignIn()
 
 	function handleSignIn() {
 		signIn({ email, password })
@@ -44,7 +45,12 @@ export function SignInScreen() {
 						onChangeText={setPassword}
 					/>
 
-					<Button title="Login" variant="secondary" onPress={handleSignIn} />
+					<Button
+						title="Login"
+						variant="secondary"
+						isLoading={isLoading}
+						onPress={handleSignIn}
+					/>
 				</Box>
 			</Box>
 		</SafeAreaView>
