@@ -1,6 +1,11 @@
 name: Build app
 
 on:
+ pull_request:
+    branches:
+      - main
+      - develop
+
   push:
     branches:
       - main
@@ -9,7 +14,7 @@ on:
 jobs:
   run-checks:
     if: github.event.pull_request.merged == true
-    uses: ./.github/workflows/pull-request-checks.yml
+    uses: ./.github/workflows/pull_request_checks.yml
 
   build:
     runs-on: ubuntu-latest
