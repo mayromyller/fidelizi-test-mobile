@@ -89,8 +89,6 @@ O projeto utiliza uma adaptação da arquitetura [Vertical Slice](https://www.mi
 
 ## Funcionalidades & Regras de Negócio Principais
 
-Com base nos arquivos fornecidos, vou fazer uma análise detalhada das relações entre os arquivos:
-
 - **Contexto de Autenticação:**
   - Autenticação com persistência de dados no AsyncStorage
   - Provê estado de autenticação para a aplicação
